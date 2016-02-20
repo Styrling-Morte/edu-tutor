@@ -1,0 +1,74 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  background-color: #1FB9D6;
+}
+
+.navbar {
+  background-color: #03798F;
+  border: 10px;
+  border-color: #DAFAFE;
+
+  a {
+    background-color: #FFF;
+    color: #FFF;
+  }
+}
+
+.non_user_slider {
+  background-image: image-url("non_user_slider.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px;
+  height: 50vh;
+  background-position: left top;
+
+
+  /* Portrait ----------- */
+  @media only screen and (orientation: portrait) {
+    background: image-url("non_user_slider.jpg") no-repeat left top;
+    background-size: cover;
+  }
+
+  .slider_container{
+    height: 38vh;
+    padding-left: 2rem;
+    background-color: rgba(0,0,0,0.65);
+    color: #FFF;
+    font-size: 300%;
+
+    h1 {
+      font-size: 200%;
+      font-style: oblique;
+    }
+
+    button {
+      background-color: #03798F;
+      border-color: #DAFAFE;
+      border: 10px;
+      font-size: .75em;
+      margin-right: 2rem;
+    }
+  }
+}
+
+.teach, .learn {
+  text-align: center;
+  background-color:rgba(250,250,250,0.65);
+  height: 30vh;
+  font-size: 2.5rem;
+
+  p {
+    text-align: left;
+    height: 15vh;
+  }
+
+  button {
+    background-color: #03798F;
+    border-color: #DAFAFE;
+    border: 10px;
+    color: #FFF;
+  }
+}

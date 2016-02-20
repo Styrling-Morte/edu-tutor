@@ -1,0 +1,2 @@
+class NonUserController < ApplicationController
+end
