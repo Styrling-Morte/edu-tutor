@@ -37,6 +37,9 @@ gem 'simple_calendar', '~> 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use Heroku for deployment
+gem 'heroku', '~> 3.42', '>= 3.42.33'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
