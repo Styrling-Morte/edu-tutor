@@ -1,7 +1,15 @@
-.container {
-  background-color: #fff;
+.wards_header {
+  padding-top: 2vh;
+
+  .dropdown {
+    display: inline-block;
+  }
+
+  .search_tutors {
+    display: inline-block;
+  }
 }
 
-body {
-  display:none;
+.ward_body {
+  padding-top: 2vh;
 }

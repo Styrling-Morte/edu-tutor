@@ -1,0 +1,38 @@
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Edu-tutor</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Login</a></li>
+      </ul>
+    </div>
+  </div><!-- /.container -->
+</nav>
+
+<div class="container">
+  <div class="wards_header">
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Add New Ward
+        <span class="glyphicon glyphicon-plus"></span></button>
+    </div>
+    <div class="search_tutors pull-right">
+      <button class="btn btn-alert" type="button" name="button">Search Tutors</button>
+    </div>
+  </div>
+  <div class="ward_body">
+    <div class="ward_schedule col-md-8">
+      <%= month_calendar do |date| %>
+        <%= date %>
+      <% end %>
+    </div>
+    <div class="ward_subjects col-md-4">
+      <h3>Subjects</h3>
+    </div>
+  </div>
+</div>

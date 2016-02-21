@@ -8,4 +8,8 @@ class ParentsController < ApplicationController
     render 'signup'
   end
 
+  def home
+    render 'home'
+  end
+
 end
