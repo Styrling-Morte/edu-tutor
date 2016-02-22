@@ -1,2 +1,0 @@
-class NonUserController < ApplicationController
-end

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'non_user#index'
+  root 'static_pages#index'
 
   # route for testing pages that are not accessable
   # Enter the route to test and go to localhost/test
