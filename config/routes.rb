@@ -10,5 +10,12 @@ Rails.application.routes.draw do
   get '/signup_parents', to: 'parents#signup'
   get '/signup_tutors', to: 'tutors#signup'
 
-  resources :tutors, :parents
+  resources :tutors
+
+  resources :parents, only: [:new, :create, :destroy, :index, :show]
+
+  resources :parents do
+    resources :tutors, only: [:show]
+  end
+
 end
