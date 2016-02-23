@@ -1,17 +1,27 @@
 class TutorsController < ApplicationController
+
   def index
 
-  end 
-
-  def show
-        
   end
 
-  def new 
+  def show
 
-  end 
+  end
 
-  def create 
+  def new
 
-  end 
+  end
+
+  def create
+
+  end
+
+  def login
+    render 'login'
+  end
+
+  def signup
+    render 'signup'
+  end
+
 end
