@@ -3,9 +3,10 @@ table tbody tr td {
 }
 
 img {
-width:128px;
-height:128px;
-z-index: -1; position:relative
+  width:128px;
+  height:128px;
+  z-index: -1;
+  position:relative
 }
 
 .profile {
@@ -17,13 +18,13 @@ z-index: -1; position:relative
 }
 
 button {
-      background-color: #03798F;
-      border-color: #DAFAFE;
-      border: 10px;
-      font-size: 1.5em;
-      margin-right: 2rem;
-      margin-top: 10px;
-    }
+  background-color: #03798F;
+  border-color: #DAFAFE;
+  border: 10px;
+  font-size: 1.5em;
+  margin-right: 2rem;
+  margin-top: 10px;
+}
 
 .rating {
   unicode-bidi: bidi-override;
@@ -55,8 +56,4 @@ button {
 
 .container {
   background-color: #fff;
-}
-
-body {
-  display:none;
 }

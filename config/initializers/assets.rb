@@ -11,3 +11,6 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( parents.css )
 Rails.application.config.assets.precompile += %w( tutors.css )
 Rails.application.config.assets.precompile += %w( static_pages.css )
+Rails.application.config.assets.precompile += %w( parents.js )
+Rails.application.config.assets.precompile += %w( tutors.js )
+Rails.application.config.assets.precompile += %w( static_pages.js )
