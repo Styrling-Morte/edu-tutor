@@ -1,3 +1,19 @@
+.wards_header {
+  padding-top: 2vh;
+
+  .dropdown {
+    display: inline-block;
+  }
+
+  .search_tutors {
+    display: inline-block;
+  }
+}
+
+.ward_body {
+  padding-top: 2vh;
+}
+
 table tbody tr td {
   width: 10em;
 }
