@@ -7,15 +7,17 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="navbar-auth">
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="login_parents">Login as Parent</a></li>
-            <li><a href="login_tutors">Login as Tutor</a></li>
-          </ul>
-        </li>
+        <!-- Login link if not signed in-->
+        <% if current_user.blank? %>
+          <li><a href="/users">Login</a></li>
+        <% else %>
+        <!-- Logout link if a user is signed in -->
+          <li>
+            <%= link_to "Logout", session_path(current_user.id), method: :delete %>
+          </li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -23,8 +25,8 @@
 
 <div class="container">
   <div class="login col-md-4">
-    <h1>Login As Parent</h1>
-    <form class="login_form" action="/login_parents" method="get">
+    <form class="login_form" action="/sessions" method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <%= render "shared/login_form" %>
     </form>
   </div>
