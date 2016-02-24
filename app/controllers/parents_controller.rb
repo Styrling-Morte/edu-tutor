@@ -16,6 +16,10 @@ class ParentsController < ApplicationController
 
   end
 
+  def edit
+
+  end 
+
   def signup
     render 'signup'
   end
