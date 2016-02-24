@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219200032) do
+ActiveRecord::Schema.define(version: 20160219195759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "parents", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "postal_code"
@@ -27,25 +27,7 @@ ActiveRecord::Schema.define(version: 20160219200032) do
     t.string   "phone_number"
     t.string   "email"
     t.string   "password_digest"
-    t.string   "hashed_password"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  create_table "tutors", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "address"
-    t.string   "postal_code"
-    t.string   "city"
-    t.string   "province"
-    t.string   "country"
-    t.string   "phone_number"
-    t.string   "email"
-    t.string   "hashed_password"
-    t.string   "rates"
-    t.integer  "average_review"
-    t.binary   "photo_image"
+    t.string   "account_type"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
