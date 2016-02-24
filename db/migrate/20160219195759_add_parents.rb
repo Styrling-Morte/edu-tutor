@@ -11,8 +11,6 @@ class AddParents < ActiveRecord::Migration
       t.string :phone_number
       t.string :email
       t.string :password_digest
-      t.string :hashed_password
-
       t.timestamps null: false
     end
   end

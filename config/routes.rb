@@ -9,10 +9,11 @@ Rails.application.routes.draw do
   get '/login_tutors', to: 'tutors#login'
   get '/signup_parents', to: 'parents#signup'
   get '/signup_tutors', to: 'tutors#signup'
+  get '/edit_parents', to: 'parents#edit'
 
   resources :tutors
 
-  resources :parents, only: [:new, :create, :destroy, :index, :show]
+  resources :parents, only: [:new, :create, :destroy, :index, :show, :edit]
 
   resources :parents do
     resources :tutors, only: [:show]
