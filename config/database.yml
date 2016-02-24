@@ -16,14 +16,18 @@
 #
 default: &default
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
 
 development:
   <<: *default
-  database: edututor_development
+  database: dbpmb6a9qrv9u8
+  username: nmwcveltglqbtg
+  password: XHh-NWu4aiQIqQ3BB2q3IxGfat
+  host: ec2-54-227-245-197.compute-1.amazonaws.com
+  sslmode: require
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -80,6 +84,10 @@ test:
 #
 production:
   <<: *default
-  database: edututor_production
-  username: edututor
-  password: <%= ENV['EDUTUTOR_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: utf8
+  database: dbpmb6a9qrv9u8
+  username: nmwcveltglqbtg
+  password: XHh-NWu4aiQIqQ3BB2q3IxGfat
+  host: ec2-54-227-245-197.compute-1.amazonaws.com
+  sslmode: require
