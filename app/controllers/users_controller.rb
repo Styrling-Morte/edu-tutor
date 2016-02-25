@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    render "signup"
+    
   end
 
   def update
@@ -31,6 +31,10 @@ class UsersController < ApplicationController
 
   def destroy
   end
+
+  def search 
+
+  end 
 
   def create
     user = User.new(user_params)

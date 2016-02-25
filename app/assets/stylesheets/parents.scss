@@ -74,8 +74,16 @@ button {
   background-color: #fff;
 }
 
-
 .hideAll  { 
    visibility:hidden;
+}
+
+.searchResults {
+  border: 1px solid red;
+  margin-top : 90px;
+  margin-left: auto;  
+  margin-right: auto;   
+  width: 250px; 
+  height: 50px;  
 }
 
