@@ -1,6 +1,7 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "fullcalendar";
 
 body {
   background-color: #1FB9D6;
@@ -72,4 +73,3 @@ body {
     color: #FFF;
   }
 }
-

@@ -24,12 +24,14 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+# moment
+gem 'momentjs-rails'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# Use Simple Calendar for rendering calendar views
-gem 'simple_calendar', '~> 2.0'
+# Use Full Calendar for rendering calendar views
+gem 'fullcalendar-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

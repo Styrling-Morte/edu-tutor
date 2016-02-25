@@ -1,0 +1,66 @@
+<!-- Displaying the overall page view  -->
+<div class="profile">
+  <!-- Displaying the profile picture and Bio -->
+  <div class="container">
+    <div class="reviews_tutor">
+        <fieldset>
+          <div id="upload-file-container">
+            <label>Upload a professional picture </label> <br>
+            <input type="file" name="photo" />
+          </div>
+          <div>
+            <label>Write a Short professional Bio about yourself </label> <br>
+            <textarea cols = "28" rows = "8"> </textarea>
+          </div>
+        </fieldset>
+      </div>
+  </div>
+  <div class="container">
+    <button class="pull-left" type="button" name="add_subject">Add Subject</button>
+  </div>
+
+  <div class="container">
+    <div id="subjectForm">
+      <fieldset>
+        <legend>Teaching Specilization</legend>
+        <form id="tutorUser">
+          <p> Subject
+          <input type="text"  id="subject" name="subject"  placeholder="Subject">
+          Years of Experience
+          <input type="number" id="yrs_of_experience" name="yrs_of_experience" placeholder="1" min="1">
+          Qualification
+          <input type="text" id="qualification" name="qualification" placeholder="qualification">
+          Qualification2
+           <input type="text" id="qualification2" name="qualification2" placeholder="qualification2"><br>
+           </p>
+        </form>
+      </fieldset>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="preferenceForm">
+      <fieldset>
+        <legend>Preferences</legend>
+        <form id="newUser">
+          <p> Can you teach over the weekend <input type="checkbox"  id="weekendwork" name="weekendwork"> </p>
+          <p> How many pupils can you teach Simultaneously at a location <input type="number" id="maxpupils" name="maxpupils" placeholder="1" min="1" max = "4"> </p>
+          <p> Are you willing to teach in other locations? <input type="checkbox" id="otherlocation" name="otherlocation" > </p>
+          <input type="submit" name="Submit" value="Submit">
+        </form>
+      </fieldset>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="availibility">
+      <fieldset>
+        <legend>Availibility</legend>
+        <form id="newUser">
+
+        </form>
+      </fieldset>
+    </div>
+  </div>
+
+</div>
