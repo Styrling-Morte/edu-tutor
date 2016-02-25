@@ -1,0 +1,343 @@
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Edu-tutor</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Learn</a></li>
+        <li><a href="#">Teach</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logout <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- Displaying the overall page view  -->
+<div class ="profile">
+  <div class="container">
+      <div class="addNewWard col-md-8">
+        <div id="addNewWardForm">
+          <label>Register a ward  </label> <br> 
+          <fieldset>
+            <legend>Ward Details</legend>
+            <form id="newWardUser">
+              <p> First Name <input type="text"  id="ward_firstname" name="ward_firstname"> </p>
+              <p> Grade
+                <select name="Grade">
+                  <option value=""> </option>
+                  <option value="Grade 1">Grade 1</option>
+                  <option value="Grade 2">Grade 2</option>
+                  <option value="Grade 3">Grade 3</option>
+                  <option value="Grade 4">Grade 4</option>
+                  <option value="Grade 5">Grade 5</option>
+                  <option value="Grade 6">Grade 6</option>
+                  <option value="Grade 7">Grade 7</option>
+                  <option value="Grade 8">Grade 8</option>
+                  <option value="Grade 9">Grade 9</option>
+                  <option value="Grade 10">Grade 10</option>
+                  <option value="Grade 12">Grade 11</option>
+                </select>
+              </p>
+              <p> Tutorial Start Date <input type="date"  id="proposed_startdate" name="proposed_startdate"> </p>
+              <p> Tutorial End  Date <input type="date"  id="proposed_startdate" name="proposed_startdate"> </p>
+              <p> Subject
+                <select name="Subject">
+                  <option value=""> </option>
+                  <option value="Maths">Maths</option>
+                  <option value="English">English</option>
+                  <option value="Science">Science</option>
+                  <option value="Geography">Geography</option>
+                  <option value="History">History</option>
+                  <option value="French">French</option>
+                  <option value="Chemistry">Chemistry</option>
+                  <option value="Biology">Biology</option>
+                  <option value="Music">Music</option>
+                  <option value="Physics">Physics</option>
+                  <option value="Literature">Literature</option>
+                </select>
+              </p>
+                  <div class="checkbox-group">
+                    <table> 
+                      <tbody>
+                        <ul>
+                          <tr class ="hideAll elementMon">
+                            <td class = "showAtStart">
+                              <li>
+                                <input type="checkbox" id="mon"/>
+                                <label for="mon">MON</label>
+                              </li>
+                            </td>
+                            <td>
+                              <p> Start time </p> 
+                            </td> 
+                            <td>
+                              <p> <input type="time" name="start_time"> </p> 
+                            </td>
+                            <td>
+                              <p> End Time </p> 
+                            </td>
+                            <td>
+                              <p> <input type="time" name="end_time"> </p> 
+                            </td> 
+                            <td>
+                              <p> Frequency </p> 
+                            </td> 
+                            <td>
+                              <p> 
+                                <select name="Frequency">
+                                  <option value=""> </option>
+                                  <option value="once">once</option>
+                                  <option value="weekly">weekly</option>
+                                  <option value="bi-weekly"> bi-weekly</option>
+                                  <option value="once monthly">once monthly</option>
+                                </select>
+                              </p> 
+                            </td>
+                          </tr>
+                          <tr class ="hideAll elementTue">
+                            <td class ="showAtStart">
+                              <li>
+                                <input type="checkbox" id="tue"/>
+                                <label for="tue">TUE</label>
+                              </li>
+                            </td>
+                            <td>
+                              <p> Start time </p> 
+                            </td> 
+                            <td>
+                              <p> <input type="time" name="start_time"> </p> 
+                            </td>
+                            <td>
+                              <p> End Time </p> 
+                            </td>
+                            <td>
+                              <p> <input type="time" name="end_time"> </p> 
+                            </td> 
+                            <td>
+                              <p> Frequency </p> 
+                            </td> 
+                            <td>
+                              <p> 
+                                <select name="Frequency">
+                                  <option value=""> </option>
+                                  <option value="once">once</option>
+                                  <option value="weekly">weekly</option>
+                                  <option value="bi-weekly"> bi-weekly</option>
+                                  <option value="once monthly">once monthly</option>
+                                </select>
+                              </p> 
+                            </td>  
+                          </tr>
+                          <tr class = "hideAll elementWed">
+                            <td class = "showAtStart">
+                              <li>
+                                <input type="checkbox" id="wed"/>
+                                <label for="wed">WED</label>
+                              </li>
+                            </td>
+                            <td>
+                              <p> Start time </p> 
+                            </td> 
+                            <td>
+                              <p> <input type="time" name="start_time"> </p> 
+                            </td>
+                            <td>
+                              <p> End Time </p> 
+                            </td>
+                            <td>
+                              <p> <input type="time" name="end_time"> </p> 
+                            </td> 
+                            <td>
+                              <p> Frequency </p> 
+                            </td> 
+                            <td>
+                              <p> 
+                                <select name="Frequency">
+                                  <option value=""> </option>
+                                  <option value="once">once</option>
+                                  <option value="weekly">weekly</option>
+                                  <option value="bi-weekly"> bi-weekly</option>
+                                  <option value="once monthly">once monthly</option>
+                                </select>
+                              </p> 
+                            </td>  
+                          </tr>
+                        <tr class = "hideAll elementThur">
+                          <td class = "showAtStart">
+                            <li>
+                              <input type="checkbox" id="thur"/>
+                              <label for="thur">THUR</label>
+                            </li>
+                          </td>
+                          <td>
+                            <p> Start time </p> 
+                          </td> 
+                          <td>
+                            <p> <input type="time" name="start_time"> </p> 
+                          </td>
+                          <td>
+                            <p> End Time </p> 
+                          </td>
+                          <td>
+                            <p> <input type="time" name="end_time"> </p> 
+                          </td> 
+                          <td>
+                            <p> Frequency </p> 
+                          </td> 
+                          <td>
+                            <p> 
+                              <select name="Frequency">
+                                <option value=""> </option>
+                                <option value="once">once</option>
+                                <option value="weekly">weekly</option>
+                                <option value="bi-weekly"> bi-weekly</option>
+                                <option value="once monthly">once monthly</option>
+                              </select>
+                            </p> 
+                          </td>  
+                        </tr>
+                        <tr class = "hideAll elementFri">
+                          <td class = "showAtStart">
+                            <li>
+                              <input type="checkbox" id="fri"/>
+                              <label for="fri">FRI</label>
+                            </li>
+                          </td>
+                          <td>
+                            <p> Start time </p> 
+                          </td> 
+                          <td>
+                            <p> <input type="time" name="start_time"> </p> 
+                          </td>
+                          <td>
+                            <p> End Time </p> 
+                          </td>
+                          <td>
+                            <p> <input type="time" name="end_time"> </p> 
+                          </td> 
+                          <td>
+                            <p> Frequency </p> 
+                          </td> 
+                          <td>
+                            <p> 
+                              <select name="Frequency">
+                                <option value=""> </option>
+                                <option value="once">once</option>
+                                <option value="weekly">weekly</option>
+                                <option value="bi-weekly"> bi-weekly</option>
+                                <option value="once monthly">once monthly</option>
+                              </select>
+                            </p> 
+                          </td>  
+                        </tr>
+                        <tr class = "hideAll elementSat">
+                          <td class = "showAtStart">
+                            <li>
+                              <input type="checkbox" id="sat"/>
+                              <label for="sat">SAT</label>
+                            </li>
+                          </td>
+                          <td>
+                            <p> Start time </p> 
+                          </td> 
+                          <td>
+                            <p> <input type="time" name="start_time"> </p> 
+                          </td>
+                          <td>
+                            <p> End Time </p> 
+                          </td>
+                          <td>
+                            <p> <input type="time" name="end_time"> </p> 
+                          </td> 
+                          <td>
+                            <p> Frequency </p> 
+                          </td> 
+                          <td>
+                            <p> 
+                              <select name="Frequency">
+                                <option value=""> </option>
+                                <option value="once">once</option>
+                                <option value="weekly">weekly</option>
+                                <option value="bi-weekly"> bi-weekly</option>
+                                <option value="once monthly">once monthly</option>
+                              </select>
+                            </p> 
+                          </td>  
+                        </tr>
+                        <tr class = "hideAll elementSun">
+                          <td class = "showAtStart">
+                            <li>
+                              <input type="checkbox" id="sun"/>
+                              <label for="sun">SUN</label>
+                            </li>
+                          </td>
+                          <td>
+                            <p> Start time </p> 
+                          </td> 
+                          <td>
+                            <p> <input type="time" name="start_time"> </p> 
+                          </td>
+                          <td>
+                            <p> End Time </p> 
+                          </td>
+                          <td>
+                            <p> <input type="time" name="end_time"> </p> 
+                          </td> 
+                          <td>
+                            <p> Frequency </p> 
+                          </td> 
+                          <td>
+                            <p> 
+                              <select name="Frequency">
+                                <option value=""> </option>
+                                <option value="once">once</option>
+                                <option value="weekly">weekly</option>
+                                <option value="bi-weekly"> bi-weekly</option>
+                                <option value="once monthly">once monthly</option>
+                              </select>
+                            </p> 
+                          </td>  
+                        </tr>
+                        </ul>
+                      </tbody>
+                    </table>
+                  </div>              
+              <input type="submit" name="Submit" value="Submit">
+            </form>
+          </fieldset>
+        </div>
+        <div class="bookingfeedback1 col-md-8">
+                  
+        </div>
+        <div class="bookingfeedback2  col-md-8"> 
+         
+        </div>
+      </div>               
+  </div>
+  
+
+</div>
+
