@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include UsersHelper
 
   def index
     if current_user.blank?
@@ -37,8 +38,13 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/users'
     else
-      redirect_to '/users#new'
+      account_type = params[:account_type]
+      render "signup", :locals => {:account_type => account_type}
     end
+  end
+
+  def list_wards
+    # returns an array of all ward_ids connected to the current_user
   end
 
   private

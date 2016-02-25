@@ -7,24 +7,37 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="navbar-auth">
+    <div class="navbar-account">
       <ul class="nav navbar-nav navbar-right">
         <!-- Login link if not signed in-->
         <% if current_user.blank? %>
           <li><a href="/users">Login</a></li>
         <% else %>
-        <!-- Logout link if a user is signed in -->
-          <li>
-            <%= link_to "#{current_user.first_name}", session_path(current_user.id), method: :delete %>
-          </li>
+        <!-- Profile link if a user is signed in -->
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <%= current_user.first_name %> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+              <li><a href="#">Edit Profile TODO</a></li>
+              <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+            </ul>
+          </div>
         <% end %>
       </ul>
+      <div class="nav navbar-note navbar-right">
+        <button type="button" name="button">TODO</button>
+      </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
+<!-- Navigation header -->
 <div class="container">
   <div class="wards_header">
+    <!-- ERB if current_user.has_wards? -->
+    <!-- display dropdown with entries for each ward -->
+    <!-- else display add new ward button and skip rendering wards info -->
     <div class="dropdown">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newWardForm">Add New Ward
         <span class="glyphicon glyphicon-plus"></span></button>
@@ -33,12 +46,11 @@
       <button class="btn btn-alert" type="button" name="button">Search Tutors</button>
     </div>
   </div>
-  <div id="ward-schedule" class="">
-    <h3>Schedule</h3>
-    <%= month_calendar do |date| %>
-      <%= date %>
-    <% end %>
-  </div>
+</div>
+
+<!-- Schedule calendar -->
+<div class="wards-calendar container">
+  <div id="calendar"></div>
 </div>
 
 <!-- Add new ward modal -->
