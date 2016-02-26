@@ -53,10 +53,15 @@ button {
   width: 1.1em;
 
 }
+
 .rating > span:hover:before,
 .rating > span:hover ~ span:before {
    content: "\2605";
    position: absolute;
+}
+
+li {
+  list-style: none;
 }
 
 #recommendTutorForm {
@@ -75,7 +80,6 @@ button {
 }
 
 
-.hideAll  { 
+.hideAll  {
    visibility:hidden;
 }
-

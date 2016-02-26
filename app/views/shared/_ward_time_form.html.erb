@@ -1,0 +1,37 @@
+<% days = ['mon','tue','wed','thu','fri','sat','sun'] %>
+<% days.each do |day| %>
+<tr class="hideAll element<%= day %>">
+  <td class="showAtStart">
+    <li>
+      <input type="checkbox" id="<%= day %>"/>
+      <label for="<%= day %>"><%= day.upcase %></label>
+    </li>
+  </td>
+  <td>
+    <p>Start time</p>
+  </td>
+  <td>
+    <p> <input type="time" name="start_time"> </p>
+  </td>
+  <td>
+    <p> End Time </p>
+  </td>
+  <td>
+    <p> <input type="time" name="end_time"> </p>
+  </td>
+  <td>
+    <p> Frequency </p>
+  </td>
+  <td>
+    <p>
+    <select name="Frequency">
+      <option value=""> </option>
+      <option value="once">once</option>
+      <option value="weekly">weekly</option>
+      <option value="bi-weekly"> bi-weekly</option>
+      <option value="once monthly">once monthly</option>
+    </select>
+    </p>
+  </td>
+</tr>
+<% end %>

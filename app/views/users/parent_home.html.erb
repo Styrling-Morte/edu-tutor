@@ -43,7 +43,7 @@
         <span class="glyphicon glyphicon-plus"></span></button>
     </div>
     <div class="search_tutors pull-right">
-      <button class="btn btn-alert" type="button" name="button">Search Tutors</button>
+      <a href="<%= url_for(controller: 'users', action: 'search') %>"><button class="pull-right" type="button" name="tutor_search">Search Tutors</button></a>
     </div>
   </div>
 </div>
@@ -62,11 +62,46 @@
         <h4 class="modal-title" id="myModalLabel">New Ward</h4>
       </div>
       <div class="modal-body">
-        NEW WARD FORM
+        <div class ="profile">
+          <div id="addNewWardForm">
+            <fieldset>
+              <legend>Ward Details</legend>
+              <form id="newWardUser" method="post">
+                <p>First Name <input type="text"  id="ward_firstname" name="first_name"></p>
+                <p>Grade
+                  <select name="grade_school_level">
+                    <option value=""> </option>
+                    <% for i in 1..12 %>
+                    <option value="Grade <%= i %>">Grade <%= i %></option>
+                    <% end %>
+                  </select>
+                </p>
+                <p>Subject
+                  <select name="subject_name">
+                    <option value=""> </option>
+                    <% subject_list.each do |subject| %>
+                    <% name = subject.subject_name %>
+                    <option value="<%= name %>"><%= name %></option>
+                    <% end %>
+                  </select>
+                </p>
+                <div class="checkbox-group">
+                  <table>
+                    <tbody>
+                      <ul>
+                        <%= render './shared/ward_time_form' %>
+                      </ul>
+                    </tbody>
+                  </table>
+                </div>
+              </form>
+            </fieldset>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save</button>
+        <%= button_to("Save", user_wards_path(params[:id])) %>
       </div>
     </div>
   </div>

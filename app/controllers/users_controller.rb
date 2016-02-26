@@ -43,8 +43,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def list_wards
-    # returns an array of all ward_ids connected to the current_user
+  def search
+    render "tutor_search"
   end
 
   private

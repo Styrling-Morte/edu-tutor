@@ -8,4 +8,9 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def subject_list
+    @subject =  Subject.all()
+  end
+  helper_method :subject_list
+
 end
