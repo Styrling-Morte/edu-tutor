@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
+  get '/edit_parents', to: 'users#edit'
+  get '/search_pages', to: 'users#search'
 
   resources :users do
     resources :wards, only: [:create, :destroy, :update]
@@ -9,3 +11,4 @@ Rails.application.routes.draw do
 
   get "users/search", to: "users#search"
 end
+  
