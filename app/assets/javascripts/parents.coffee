@@ -7,6 +7,7 @@
 
 $(document).ready -> 
   $(".showAtStart").css('visibility', 'visible')
+  $(".searchResults").append("<p>This test text being added to search box.</p>");
   $('input:checkbox').change ->
    check = $(@).is(':checked')
    if check
