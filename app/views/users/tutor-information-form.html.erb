@@ -36,43 +36,48 @@
 <!-- Displaying the overall page view  -->
 <div class="profile">
   <!-- Displaying the profile picture and Bio -->
-  <div class="container">
-    <div class="reviews_tutor">
+  <form id="tutorUser " action = "/users/<%=current_user.id %>/tutor_details" method= 'post'> 
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <div class="container">
+      <div class="reviews_tutor">
+      
+          <fieldset>
+            <div id="upload-file-container">
+              <label>Upload a professional picture </label> <br>  
+              <input type="file" name="image" />
+            </div>
+            <div>
+              <label>Write a Short professional Bio about yourself </label> <br>
+              <textarea name="bio" cols = "28" rows = "8" id = "tutorUser"> </textarea>
+            </div>
+          </fieldset>
+        </div>
+    </div>
+    <div class="container">
+      <button class="pull-left" type="button" name="add_subject">Add Subject</button>
+    </div>
+
+    <div class="container">
+      <div id="subjectForm" >
         <fieldset>
-          <div id="upload-file-container">
-            <label>Upload a professional picture </label> <br>
-            <input type="file" name="photo" />
-          </div>
-          <div>
-            <label>Write a Short professional Bio about yourself </label> <br>
-            <textarea cols = "28" rows = "8"> </textarea>
-          </div>
+          <legend>Teaching Specilization</legend>
+          
+            <p> Subject
+            <input type="text"  id="subject" name="subject"  placeholder="Subject">
+            Years of Experience
+            <input type="number" id="years_of_experience" name="years_of_experience" placeholder="1" min="1">
+            Qualification
+            <input type="text" id="qualification1" name="qualification1" placeholder="qualification">
+            Qualification2
+             <input type="text" id="qualification2" name="qualification2" placeholder="qualification2"><br>
+             </p>
+             <input type="submit" name="Submit" id= "buttonQualificationSubmit" value="Submit">
+     
         </fieldset>
       </div>
-  </div>
-  <div class="container">
-    <button class="pull-left" type="button" name="add_subject">Add Subject</button>
-  </div>
-
-  <div class="container">
-    <div id="subjectForm" >
-      <fieldset>
-        <legend>Teaching Specilization</legend>
-        <form id="tutorUser " action = "/users/<%=current_user.id %>/tutor_details">
-          <p> Subject
-          <input type="text"  id="subject" name="subject"  placeholder="Subject">
-          Years of Experience
-          <input type="number" id="yrs_of_experience" name="yrs_of_experience" placeholder="1" min="1">
-          Qualification
-          <input type="text" id="qualification" name="qualification" placeholder="qualification">
-          Qualification2
-           <input type="text" id="qualification2" name="qualification2" placeholder="qualification2"><br>
-           </p>
-        </form>
-      </fieldset>
     </div>
-  </div>
-
+   </form>
+<!-- 
   <div class="container">
     <div id="preferenceForm">
       <fieldset>
@@ -85,7 +90,7 @@
         </form>
       </fieldset>
     </div>
-  </div>
+  </div> -->
 
   <div class="container">
     <div id="availibility">

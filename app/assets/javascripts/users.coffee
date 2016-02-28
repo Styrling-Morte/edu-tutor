@@ -6,5 +6,5 @@ jQuery ->
       right: 'prev,next today'
     }
   })
-  $(.button selector).click -> 
-    $(.form ID).submit 
+  $('#buttonQualificationSubmit').click -> 
+    $('#tutorUser').submit() 
