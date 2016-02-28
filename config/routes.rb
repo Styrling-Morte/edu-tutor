@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get '/edit_parents', to: 'users#edit'
   get '/search_pages', to: 'users#search'
 
-  resources :users
+  resources :users do 
+    resources :tutor_details
+  end 
   resources :sessions, only: [:create, :destroy]
 
 end

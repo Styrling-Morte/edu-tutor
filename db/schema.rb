@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225211708) do
+ActiveRecord::Schema.define(version: 20160228213601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,19 +70,20 @@ ActiveRecord::Schema.define(version: 20160225211708) do
     t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "image"
   end
 
   add_index "tutor_details", ["user_id"], name: "index_tutor_details_on_user_id", using: :btree
 
-  create_table "tutorialsubjects", force: :cascade do |t|
+  create_table "tutorial_subjects", force: :cascade do |t|
     t.integer  "ward_id"
     t.integer  "subject_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "tutorialsubjects", ["subject_id"], name: "index_tutorialsubjects_on_subject_id", using: :btree
-  add_index "tutorialsubjects", ["ward_id"], name: "index_tutorialsubjects_on_ward_id", using: :btree
+  add_index "tutorial_subjects", ["subject_id"], name: "index_tutorial_subjects_on_subject_id", using: :btree
+  add_index "tutorial_subjects", ["ward_id"], name: "index_tutorial_subjects_on_ward_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -118,7 +119,7 @@ ActiveRecord::Schema.define(version: 20160225211708) do
   add_foreign_key "specializations", "subjects"
   add_foreign_key "specializations", "tutor_details"
   add_foreign_key "tutor_details", "users"
-  add_foreign_key "tutorialsubjects", "subjects"
-  add_foreign_key "tutorialsubjects", "wards"
+  add_foreign_key "tutorial_subjects", "subjects"
+  add_foreign_key "tutorial_subjects", "wards"
   add_foreign_key "wards", "users"
 end

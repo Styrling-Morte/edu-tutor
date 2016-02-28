@@ -39,6 +39,12 @@ gem 'fullcalendar-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use for file upload 
+gem 'carrierwave'
+
+# use for manipulating the size of pictures uploaded 
+gem 'rmagick'
+
 # Use Heroku for deployment
 gem 'heroku', '~> 3.42', '>= 3.42.33'
 
