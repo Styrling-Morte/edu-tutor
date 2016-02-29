@@ -2,15 +2,84 @@
 <html>
 <head>
   <title>Edututor</title>
-  <script src="multiselect.js"></script>
-  <%= stylesheet_link_tag    'application', 'tutors', 'parents', 'users', 'multiselect', 'static_pages', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'tutors', 'parents', 'static_pages', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', 'users', 'multiselect', 'static_pages', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'tutors', 'parents', 'static_pages', 'multiselect', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div id="page-container">
+  <% if params[:controller] == "static_pages" %>
+  <!-- Static_pages Navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Edu-tutor</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#learn">Learn</a></li>
+          <li><a href="#teach">Teach</a></li>
+          <li><a href="#about">About Us</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/users">Login</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <% else %>
+  <!-- Navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/users">Edu-tutor</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="navbar-account">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- Login link if not signed in-->
+          <% if current_user.blank? %>
+            <li><a href="/users">Login</a></li>
+          <% else %>
+          <!-- Profile link if a user is signed in -->
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <%= current_user.first_name %> <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                <li><a href="#">Edit Profile TODO</a></li>
+                <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+              </ul>
+            </div>
+          <% end %>
+        </ul>
+        <div class="nav navbar-note navbar-right">
+          <button type="button" name="button">TODO</button>
+        </div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <% end %>
+
   <%= yield %>
-  <%= render 'layouts/footer' %>
+
+  <div class="push"></div>
+</div>
+<div class="footer">
+  <div class="copyright">
+    <h5>&copy Copyright Edu-tutor 2016</h5>
+  </div>
 </div>
 </body>
 </html>
