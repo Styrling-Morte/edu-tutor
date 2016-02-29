@@ -23,3 +23,7 @@ jQuery ->
     },
     showCheckbox  : true,
     })
+
+  # Tutor detail form submit button
+  $('#buttonQualificationSubmit').click ->
+    $('#tutorUser').submit()

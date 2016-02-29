@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :wards, only: [:create, :destroy, :update]
+    resources :tutor_details
   end
 
   resources :sessions, only: [:create, :destroy]

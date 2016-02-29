@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     if current_user.account_type == "parent"
       render "parent_home"
     elsif current_user.account_type == "tutor"
-      render "tutor_home"
+      render "tutor_detailed_homepage.html.erb"
     end
   end
 
@@ -49,7 +49,10 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
-      redirect_to '/users'
+        if current_user.account_type == "tutor"
+        render "tutor-information-form.html.erb"
+        end 
+      # redirect_to '/users'
     else
       account_type = params[:account_type]
       render "signup", :locals => {:account_type => account_type}
