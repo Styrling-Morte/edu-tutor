@@ -27,8 +27,8 @@
 </nav>
 
 <!-- Slider -->
-<div class='container non_user_slider'>
-  <div class="slider_container">
+<div class='container-fluid non_user_slider'>
+  <div class="container slider_container">
     <h1>Edu-tutor</h1>
     <p>We all want to give our kids the best education.</p>
     <p>Edu-tutor makes it easy for you to find the best home tutors for your kids.</p>
@@ -36,16 +36,36 @@
   </div>
 </div>
 
-<!-- Teach & Learn-->
-<div class="container">
-  <div class="teach col-md-6">
-    <h1>Teach</h1>
-    <p>We always welcome teachers who are passionate
-about their subjects and want to make a difference in
-the lives students to sign-up on our site</p>
-    <a href="<%= url_for(controller: 'users', action: 'new', params: {:account_type => "tutor"}) %>"><button class="pull-right" type="button" name="tutor-signin">Tutor Sign-up</button></a>
+<!-- Reviews -->
+<div class="container-fluid" id="reviews">
+  <div id="Carousel" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="item review active">
+        <h3>Edu-tutor helped my child go from struggling in math to being top of his class!</h3>
+        <h4>Scott McPhee</h4>
+      </div>
+      <div class="item review">
+        <h3>I love using Edututor to help find tutors. It makes the whole proccess so much faster and easier.</h3>
+        <h4>John Smith</h4>
+      </div>
+      <div class="item review">
+        <h3>I love using Edututor to help find tutors. It makes the whole proccess so much faster and easier.</h3>
+        <h4>John Smith</h4>
+      </div>
+    </div>
+
+    <a class="left carousel-control" href="#Carousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#Carousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
   </div>
-  <div class="learn col-md-6">
+</div>
+
+<!-- Learn-->
+<div class="container">
+  <div id="learn">
     <h1>Learn</h1>
     <p>We want all Parents or Guardians who want to find best home tutors
 for their wards or Kids on any Subject to sign-up</p>
@@ -53,16 +73,19 @@ for their wards or Kids on any Subject to sign-up</p>
   </div>
 </div>
 
-<!-- Reviews -->
+<!-- Teach -->
 <div class="container">
-  <div class="reviews">
-    <div class="review col-md-5">
-      <h3>Edu-tutor helped my child go from struggling in math to being top of his class!</h3>
-      <h4>Scott McPhee</h4>
-    </div>
-    <div class="review col-md-5">
-      <h3>I love using Edututor to help find tutors. It makes the whole proccess so much faster and easier.</h3>
-      <h4>John Smith</h4>
-    </div>
+  <div id="teach">
+    <h1>Teach</h1>
+    <p>We always welcome teachers who are passionate
+about their subjects and want to make a difference in
+the lives students to sign-up on our site</p>
+    <a href="<%= url_for(controller: 'users', action: 'new', params: {:account_type => "tutor"}) %>"><button class="pull-right" type="button" name="tutor-signin">Tutor Sign-up</button></a>
+  </div>
+</div>
+
+<div class="container">
+  <div id="about">
+    <h1>About Us</h1>
   </div>
 </div>

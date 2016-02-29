@@ -1,6 +1,15 @@
 class UsersController < ApplicationController
   include UsersHelper
 
+  def has_wards?
+    if @current_user.wards.blank?
+      return false
+    else
+      return true
+    end
+  end
+  helper_method :has_wards?
+
   def index
     if current_user.blank?
       render "login"
@@ -23,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def update
@@ -32,9 +41,9 @@ class UsersController < ApplicationController
   def destroy
   end
 
-  def search 
+  def search
 
-  end 
+  end
 
   def create
     user = User.new(user_params)

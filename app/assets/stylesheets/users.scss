@@ -1,9 +1,138 @@
 .wards-calendar {
-  margin-top: 2rem;
-  width: 500px;
+  padding-top: 2rem;
   overflow: hidden;
+  height: 20em;
 }
 
 .fc_body {
   max-width: 500px;
+}
+
+.wards_header {
+  padding-top: 2vh;
+
+  .dropdown {
+    display: inline-block;
+  }
+
+  .search_tutors {
+    display: inline-block;
+  }
+}
+
+.ward_body {
+  padding-top: 2vh;
+}
+
+table tbody tr td {
+  width: 10em;
+}
+
+img {
+  width:128px;
+  height:128px;
+  z-index: -1;
+  position:relative
+}
+
+.profile {
+  background-color:rgba(250,250,250,0.65);
+  border-radius: 1%;
+  border-color: 372D2D;
+  margin-right: 10rem;
+  margin-left: 10rem;
+}
+
+button {
+  background-color: #03798F;
+  border-color: #DAFAFE;
+  border: 10px;
+  font-size: 1.5em;
+  margin-right: 2rem;
+  margin-top: 10px;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+
+}
+
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
+
+li {
+  list-style: none;
+}
+
+#recommendTutorForm {
+  align: left;
+  clear: both;
+}
+
+.tutorFeedbackOnBooking {
+  border: 1px Solid Blue;
+  border-radius: 10%;
+  margin-bottom: 15px;
+}
+
+.container {
+  background-color: #fff;
+}
+
+.hideAll  {
+   visibility:hidden;
+}
+
+.searchResults {
+  border: 1px solid red;
+  margin-top : 90px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  height: 50px;
+}
+
+table tbody tr td {
+  width: 10em;
+}
+
+img {
+  width:128px;
+  height:128px;
+  z-index: -1;
+  position:relative
+}
+
+.profile {
+  background-color:rgba(250,250,250,0.65);
+  border-radius: 5%;
+  border-color: 372D2D;
+}
+
+#commentsBooking {
+   float: left;
+   clear: both;
+   border: 10px solid blue;
+}
+
+.bookingconfirmation2 {
+  border: 1px solid blue;
+}
+
+.commentsBooking {
+  clear: both ;
+}
+
+.container {
+  background-color: #fff;
 }

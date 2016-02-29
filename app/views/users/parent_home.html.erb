@@ -35,23 +35,67 @@
 <!-- Navigation header -->
 <div class="container">
   <div class="wards_header">
-    <!-- ERB if current_user.has_wards? -->
     <!-- display dropdown with entries for each ward -->
     <!-- else display add new ward button and skip rendering wards info -->
+    <% if has_wards? %>
+    <div class="dropdown">
+      <button type="button" class="btn btn-primary dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <%= current_user.wards.first.first_name %>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+        <% current_user.wards.each do |ward| %>
+          <% if current_user.wards.first == ward %>
+            <% next %>
+          <% else %>
+            <li><%= link_to ward.first_name, generate_ward_page_path(:js), remote: true %></li>
+          <% end %>
+        <% end %>
+        <li><a data-toggle="modal" data-target="#newWardForm">Add New Ward
+          <span class="glyphicon glyphicon-plus"></span></a></li>
+      </ul>
+    </div>
+    <% else %>
     <div class="dropdown">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newWardForm">Add New Ward
         <span class="glyphicon glyphicon-plus"></span></button>
     </div>
+    <% end %>
     <div class="search_tutors pull-right">
       <a href="<%= url_for(controller: 'users', action: 'search') %>"><button class="pull-right" type="button" name="tutor_search">Search Tutors</button></a>
     </div>
   </div>
 </div>
 
-<!-- Schedule calendar -->
-<div class="wards-calendar container">
-  <div id="calendar"></div>
-</div>
+<!-- Ward page render start -->
+  <% if !current_user.wards.blank? %>
+  <!-- Ward Schedule -->
+  <div id="ward_calendar" class="container">
+    <div id="calendar"></div>
+  </div>
+
+  <!-- Ward subjects -->
+  <div class="wards-subjects container">
+    <h3>Subjects</h3>
+    <ul>
+      <% current_user.wards.first.tutorial_subjects.each do |subject| %>
+        <% id = subject.subject_id %>
+        <% subject_list.each do |subject| %>
+          <% if subject.id == id %>
+            <li><%= subject.subject_name %></li>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+
+  <!-- Reccomended Tutors -->
+  <div class="reccomended-tutors container">
+    <h3>Reccomended Tutors</h3>
+  </div>
+  <% end %>
+
+<!-- Ward page render stop -->
 
 <!-- Add new ward modal -->
 <div class="modal fade" id="newWardForm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -62,46 +106,40 @@
         <h4 class="modal-title" id="myModalLabel">New Ward</h4>
       </div>
       <div class="modal-body">
-        <div class ="profile">
-          <div id="addNewWardForm">
-            <fieldset>
-              <legend>Ward Details</legend>
-              <form id="newWardUser" method="post">
-                <p>First Name <input type="text"  id="ward_firstname" name="first_name"></p>
-                <p>Grade
-                  <select name="grade_school_level">
-                    <option value=""> </option>
-                    <% for i in 1..12 %>
-                    <option value="Grade <%= i %>">Grade <%= i %></option>
-                    <% end %>
-                  </select>
-                </p>
-                <p>Subject
-                  <select name="subject_name">
-                    <option value=""> </option>
-                    <% subject_list.each do |subject| %>
-                    <% name = subject.subject_name %>
-                    <option value="<%= name %>"><%= name %></option>
-                    <% end %>
-                  </select>
-                </p>
-                <div class="checkbox-group">
-                  <table>
-                    <tbody>
-                      <ul>
-                        <%= render './shared/ward_time_form' %>
-                      </ul>
-                    </tbody>
-                  </table>
-                </div>
-              </form>
-            </fieldset>
-          </div>
+        <div id="addNewWardForm">
+          <form id="newWardUser" action="/users/<%= current_user.id %>/wards" method="post">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <p>First Name</p>
+            <input type="text" name="first_name">
+            <p>Grade</p>
+            <select form="newWardUser" name="grade_school_level">
+              <option value=""> </option>
+              <% for i in 1..12 %>
+                <option value="Grade <%= i %>">Grade <%= i %></option>
+              <% end %>
+            </select>
+            <p>Subject</p>
+            <select multiple class="multiple_select" form="newWardUser" name="subject_ids[]">
+              <% subject_list.each do |subject| %>
+                <% name = subject.subject_name %>
+                <option value="<%= subject.id %>"><%= name %></option>
+              <% end %>
+            </select>
+            <div class="checkbox-group">
+              <table>
+                <tbody>
+                  <ul>
+                    <%= render './shared/ward_time_form' %>
+                  </ul>
+                </tbody>
+              </table>
+            </div>
+          </form>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <%= button_to("Save", user_wards_path(params[:id])) %>
+        <button class="btn btn-default" data-dismiss="modal">Close</button>
+        <button class="btn btn-primary" id="addWardButton">Save</button>
       </div>
     </div>
   </div>
