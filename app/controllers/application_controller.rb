@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
   end
   helper_method :subject_list
 
+  def calender
+    @full_clndr = Clndr.new(:full)
+  end
+  helper_method :calender
 end

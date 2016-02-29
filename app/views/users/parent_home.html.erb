@@ -39,17 +39,13 @@
     <!-- else display add new ward button and skip rendering wards info -->
     <% if has_wards? %>
     <div class="dropdown">
-      <button type="button" class="btn btn-primary dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <button type="button" id="ward_name" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         <%= current_user.wards.first.first_name %>
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
         <% current_user.wards.each do |ward| %>
-          <% if current_user.wards.first == ward %>
-            <% next %>
-          <% else %>
-            <li><%= link_to ward.first_name, generate_ward_page_path(:js), remote: true %></li>
-          <% end %>
+          <li><%= link_to ward.first_name, generate_ward_page_path(:js, :ward_id => ward.id), remote: true %></li>
         <% end %>
         <li><a data-toggle="modal" data-target="#newWardForm">Add New Ward
           <span class="glyphicon glyphicon-plus"></span></a></li>
@@ -71,22 +67,14 @@
   <% if !current_user.wards.blank? %>
   <!-- Ward Schedule -->
   <div id="ward_calendar" class="container">
-    <div id="calendar"></div>
+    <div id="calendar">
+      <%= calender.view %>
+    </div>
   </div>
 
   <!-- Ward subjects -->
-  <div class="wards-subjects container">
-    <h3>Subjects</h3>
-    <ul>
-      <% current_user.wards.first.tutorial_subjects.each do |subject| %>
-        <% id = subject.subject_id %>
-        <% subject_list.each do |subject| %>
-          <% if subject.id == id %>
-            <li><%= subject.subject_name %></li>
-          <% end %>
-        <% end %>
-      <% end %>
-    </ul>
+  <div id="ward_subjects" class="container">
+    <%= render :partial => './shared/ward_subjects', locals: {ward: current_user.wards.first} %>
   </div>
 
   <!-- Reccomended Tutors -->

@@ -15,5 +15,6 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require moment
-//= require fullcalendar
+//= require underscore
+//= require clndr-rails
 //= require_tree

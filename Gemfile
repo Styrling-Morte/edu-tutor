@@ -31,7 +31,7 @@ gem 'momentjs-rails'
 gem 'bcrypt', '~> 3.1.7'
 
 # Use Full Calendar for rendering calendar views
-gem 'fullcalendar-rails'
+gem 'clndr-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -39,11 +39,8 @@ gem 'fullcalendar-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Use for file upload 
+# Use for file upload
 gem 'carrierwave'
-
-# use for manipulating the size of pictures uploaded 
-gem 'rmagick'
 
 # Use Heroku for deployment
 gem 'heroku', '~> 3.42', '>= 3.42.33'

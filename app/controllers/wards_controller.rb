@@ -14,6 +14,7 @@ class WardsController < ApplicationController
   end
 
   def generate_page
+    @selected = Ward.find(params[:ward_id])
     respond_to do |format|
       format.js
     end
