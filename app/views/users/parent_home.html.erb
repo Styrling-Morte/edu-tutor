@@ -1,37 +1,3 @@
-<!-- Navbar -->
-<nav class="navbar navbar-default">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Edu-tutor</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="navbar-account">
-      <ul class="nav navbar-nav navbar-right">
-        <!-- Login link if not signed in-->
-        <% if current_user.blank? %>
-          <li><a href="/users">Login</a></li>
-        <% else %>
-        <!-- Profile link if a user is signed in -->
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <%= current_user.first_name %> <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-              <li><a href="#">Edit Profile TODO</a></li>
-              <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
-            </ul>
-          </div>
-        <% end %>
-      </ul>
-      <div class="nav navbar-note navbar-right">
-        <button type="button" name="button">TODO</button>
-      </div>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
 <!-- Navigation header -->
 <div class="container">
   <div class="wards_header">
@@ -58,7 +24,7 @@
     </div>
     <% end %>
     <div class="search_tutors pull-right">
-      <a href="<%= url_for(controller: 'users', action: 'search') %>"><button class="pull-right" type="button" name="tutor_search">Search Tutors</button></a>
+      <a href="<%= url_for(controller: 'tutor_details', action: 'search') %>"><button class="btn btn-primary pull-right" type="button" name="tutor_search">Search Tutors</button></a>
     </div>
   </div>
 </div>
@@ -78,8 +44,9 @@
   </div>
 
   <!-- Reccomended Tutors -->
-  <div class="reccomended-tutors container">
-    <h3>Reccomended Tutors</h3>
+  <div class="recomended-tutors container">
+    <h3>Recomended Tutors</h3>
+    <%= render :partial => './shared/tutor_search_result', locals: {tutor: allTutors.first} %>
   </div>
   <% end %>
 

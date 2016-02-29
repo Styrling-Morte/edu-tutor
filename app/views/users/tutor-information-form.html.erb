@@ -1,49 +1,14 @@
-<!-- Navbar -->
-<nav class="navbar navbar-default">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Edu-tutor</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="navbar-account">
-      <ul class="nav navbar-nav navbar-right">
-        <!-- Login link if not signed in-->
-        <% if current_user.blank? %>
-          <li><a href="/users">Login</a></li>
-        <% else %>
-        <!-- Profile link if a user is signed in -->
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <%= current_user.first_name %> <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-              <li><a href="#">Edit Profile</a></li>
-              <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
-            </ul>
-          </div>
-        <% end %>
-      </ul>
-      <div class="nav navbar-note navbar-right">
-        <button type="button" name="button">TODO</button>
-      </div>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-
 <!-- Displaying the overall page view  -->
 <div class="profile">
   <!-- Displaying the profile picture and Bio -->
-  <form id="tutorUser " action = "/users/<%=current_user.id %>/tutor_details" method= 'post'> 
+  <form id="tutorUser " action = "/users/<%=current_user.id %>/tutor_details" method= 'post'>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <div class="container">
       <div class="reviews_tutor">
-      
+
           <fieldset>
             <div id="upload-file-container">
-              <label>Upload a professional picture </label> <br>  
+              <label>Upload a professional picture </label> <br>
               <input type="file" name="image" />
             </div>
             <div>
@@ -61,7 +26,7 @@
       <div id="subjectForm" >
         <fieldset>
           <legend>Teaching Specilization</legend>
-          
+
             <p> Subject
             <input type="text"  id="subject" name="subject"  placeholder="Subject">
             Years of Experience
@@ -72,12 +37,12 @@
              <input type="text" id="qualification2" name="qualification2" placeholder="qualification2"><br>
              </p>
              <input type="submit" name="Submit" id= "buttonQualificationSubmit" value="Submit">
-     
+
         </fieldset>
       </div>
     </div>
    </form>
-<!-- 
+<!--
   <div class="container">
     <div id="preferenceForm">
       <fieldset>

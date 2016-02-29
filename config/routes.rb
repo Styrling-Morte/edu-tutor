@@ -8,6 +8,6 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
 
-  get "users/search", to: "users#search"
+  get "tutor_details/search", to: "tutor_details#search"
   get "/generate_ward_page", to: "wards#generate_page"
 end
