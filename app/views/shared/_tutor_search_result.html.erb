@@ -4,12 +4,15 @@
   </div>
   <div class="tutor_right">
     <div class="tutor_search_header">
-      <h3><%= tutor.user.first_name %> <%= tutor.user.last_name %></h3>
-      <h4>Average Review</h4>
+      <h3><%= tutor.first_name %> <%= tutor.last_name %> </h3>
+      <h4>Average Rating Score</h4> <%= tutor.tutor_detail.average_review %> 
     </div>
     <div class="tutor_search_body">
-      <p>Subject, Subject, Subject</p>
-      <p><%= tutor.user.address %>, <%= tutor.user.city %></p>
+      <h4>Subjects </h4>
+          <% tutor.tutor_detail.specializations.each do |specialization| %> 
+          <p> <%= subject_list.find(specialization.subject_id).subject_name %> </p>
+          <% end %>  
     </div>
   </div>
 </div>
+

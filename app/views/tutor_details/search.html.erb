@@ -1,48 +1,55 @@
 <div class="container">
   <div class="search col-md-12">
     <div class="search col-md-6 col-offset-3">
-      <table>
-        <tbody>
-          <legend> Tutor Search </legend>
-          <tr>
-            <td>
-              <label><span>Calgary</span></label>
-            </td>
-            <td>
-              <select name="Location">
-                <option value="">Location </option>
-                <option value="North-west">North-west</option>
-                <option value="North-east">North-east</option>
-                <option value="South_west">South_west</option>
-                <option value="South-east">South-east</option>
-              </select>
-            </td>
-            <td>
-              <select name="Grade">
-                <option value="">Ward Grade</option>
-                <% for i in 1..12 %>
-                  <option value="<%= i %>">Grade <%= i %></option>
-                <% end %>
-              </select>
-            </td>
-            <td>
-              <select name="subject">
-                <option value="">Subject</option>
-                <% subject_list.each do |subject| %>
-                  <% name = subject.subject_name %>
-                  <option value="<%= subject.id %>"><%= name %></option>
-                <% end %>
-              </select>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <form id="searchTutorUser " action = "/tutor_details/search" method= 'get'>
+        <table>
+          <tbody>
+            <legend> Tutor Search </legend>
+            <tr>
+              <td>
+                <label><span>Calgary</span></label>
+              </td>
+              <td>
+                <select name="Location">
+                  <option value="">Location </option>
+                  <option value="North-west">North-west</option>
+                  <option value="North-east">North-east</option>
+                  <option value="South_west">South_west</option>
+                  <option value="South-east">South-east</option>
+                </select>
+              </td>
+              <td>
+                <select name="Grade">
+                  <option value="">Ward Grade</option>
+                  <% for i in 1..12 %>
+                    <option value="<%= i %>">Grade <%= i %></option>
+                  <% end %>
+                </select>
+              </td>
+              <td>
+                <select name="subject">
+                  <option value="">Subject</option>
+                  <% subject_list.each do |subject| %>
+                    <% name = subject.subject_name %>
+                    <option value="<%= subject.id %>"><%= name %></option>
+                  <% end %>
+                </select>
+              </td>
+              <td>
+                <button type="submit" name="search" class="searchTutorButton" id="searchTutorUser ">Search</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
     </div>
   </div>
 </div>
 
 <div id="tutor_search_results" class="container">
-  <% allTutors.each do |tutor| %>
+  <% @tutor_result.each do |tutor| %>
     <%= render :partial => './shared/tutor_search_result', locals: {tutor: tutor} %>
   <% end %>
 </div>
+
+ 

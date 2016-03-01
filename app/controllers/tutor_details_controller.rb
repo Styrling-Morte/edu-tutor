@@ -24,7 +24,11 @@ class TutorDetailsController < ApplicationController
   end
 
   def search
-    render 'search'
+   
+    ward_grade = params[:Grade]
+    subject = params[:subject]
+    @tutor_result = User.where(:account_type => 'tutor').where(["address LIKE ?", "%#{params[:Location]}%"])
+    render 'search.html.erb'
   end
 
   

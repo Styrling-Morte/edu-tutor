@@ -3,7 +3,7 @@
     <tbody>
       <tr>
         <td> Subject: </td>
-        <td> </td>
+        <td> <%= subject_list.find(specialization.subject_id).subject_name %></td>
         <td> Experience(yrs): </td>
         <td> <%= specialization.years_of_experience %> </td>
         <td> Qualification1: </td>
@@ -14,3 +14,4 @@
     </tbody>
   </table>
 </div>
+
