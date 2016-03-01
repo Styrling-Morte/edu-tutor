@@ -1,1 +1,5 @@
-$('#ward_calendar').html("<%= escape_javascript(render :partial => './shared/ward_calendar') %>");
+$('#ward_calendar').html("<%= escape_javascript(render :partial => './shared/ward_calendar', locals: {ward: @selected} ) %>");
+
+$('#ward_subjects').html("<%= escape_javascript(render :partial => './shared/ward_subjects', locals: {ward: @selected} ) %>");
+
+$('#ward_name').html("<%= @selected.first_name %> <span class='caret'></span>");

@@ -54,7 +54,6 @@ class UsersController < ApplicationController
         else 
            redirect_to '/users'
         end 
-     
     else
       account_type = params[:account_type]
       render "signup", :locals => {:account_type => account_type}

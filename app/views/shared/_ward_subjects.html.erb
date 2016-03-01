@@ -1,0 +1,11 @@
+<h3>Subjects</h3>
+<ul>
+  <% ward.tutorial_subjects.each do |subject| %>
+    <% id = subject.subject_id %>
+    <% subject_list.each do |subject| %>
+      <% if subject.id == id %>
+        <li><%= subject.subject_name %></li>
+      <% end %>
+    <% end %>
+  <% end %>
+</ul>

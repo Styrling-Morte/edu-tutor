@@ -20,4 +20,13 @@ class ApplicationController < ActionController::Base
   helper_method :subject_list, :allTutors
 
 
+  def allTutors
+   @tutor=TutorDetail.all()
+  end
+  helper_method  :allTutors
+
+  def calender
+    @full_clndr = Clndr.new(:full)
+  end
+  helper_method :calender
 end
