@@ -32,11 +32,11 @@
       <h4> </h4>
     </div>
     <div class="bio col-md-6">
-      <h4>Name: Stanley Brown</h4>
+     <% tutor =  allTutors.find(params[:tutor1_id]) %> 
+      <h4>Name: <%= tutor.user.first_name %> <%= tutor.user.last_name %> </h4>
       <h5> Professional Bio: </h5>
-      <p> A dedicated tutor with over 10 years
-      experience teaching Maths and Computer science to pupils from
-      Grade 6 to Grade 10.
+      <p> 
+        <%= tutor.bio %>
       </p>
     </div>
   </div>
@@ -44,60 +44,15 @@
 
   <!-- Displaying Experience and Specilazation-->
   <div class="container">
-    <div class="experience col-md-12">
-      <h4>Specialization</h4>
-      <table>
-        <tbody>
-          <tr>
-            <td> Subject: </td>
-            <td> Maths</td>
-            <td> Experience(yrs): </td>
-            <td> 3 </td>
-            <td> Qualification1: </td>
-            <td> BSc. Mathematics </td>
-            <td> Qualification2: </td>
-            <td> MSc. Mathematics</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="experience col-md-12">
-      <table>
-        <tbody>
-          <tr>
-            <td> Subject: </td>
-            <td> English </td>
-            <td> Experience(yrs): </td>
-            <td> </td>
-            <td> Qualification1: </td>
-            <td> </td>
-            <td> Qualification2: </td>
-            <td> </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="experience col-md-12">
-      <table>
-        <tbody>
-          <tr>
-            <td> Subject: </td>
-            <td>Computer science </td>
-            <td> Experience(yrs): </td>
-            <td> 10 </td>
-            <td> Qualification1: </td>
-            <td> </td>
-            <td> Qualification2: </td>
-            <td> </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <h4>Specialization</h4>
+    <% if tutor.specializations.count >= 1 %> 
+    <%  tutor.specializations.each do |specialization | %>
+      <%= render :partial => './shared/tutor_detail_specialization', locals: {specialization: specialization} %>
+      <% end %> 
+    <% end %> 
   </div>
-
-  <!-- parentt Reviews of tutors  -->
+  
+  <!-- parent Reviews of tutors  -->
   <br>
   <br>
   <div class="container">

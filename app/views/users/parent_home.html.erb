@@ -90,8 +90,15 @@
   </div>
 
   <!-- Reccomended Tutors -->
-  <div class="reccomended-tutors container">
+  <div class="recomended-tutors container">
     <h3>Reccomended Tutors</h3>
+    <ul> 
+      <%   tutor1 = allTutors[0]  %> 
+      <%   tutor2 = allTutors[2]  %> 
+      <li> <%= link_to(tutor1.user.first_name,  user_tutor_detail_path(:user_id => current_user.id, :tutor1_id => tutor1.id) ) %></li>
+      <li> <%= link_to(tutor2.user.first_name,  user_tutor_detail_path(:user_id => current_user.id,:tutor1_id => tutor2.id) ) %></li>
+    </ul>
+    
   </div>
   <% end %>
 

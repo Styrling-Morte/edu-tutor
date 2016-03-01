@@ -15,15 +15,20 @@ jQuery ->
     $('#newWardUser').submit()
   # Allow Multiple subject select on new ward form
   $('.multiple_select').multiselect({
-    placeholder   : '',
+    placeholder   : ' ',
     columns       : 2,
     search        : true,
     searchOptions : {
       default     : 'Search'
     },
     showCheckbox  : true,
-    })
+  })
 
   # Tutor detail form submit button
   $('#buttonQualificationSubmit').click ->
     $('#tutorUser').submit()
+
+  
+
+
+ 

@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
   def subject_list
     @subject =  Subject.all()
   end
-  helper_method :subject_list
+
+  def allTutors
+    @tutor=TutorDetail.all() 
+
+  end 
+
+  helper_method :subject_list, :allTutors
+
 
 end

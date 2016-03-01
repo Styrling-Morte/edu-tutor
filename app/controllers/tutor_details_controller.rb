@@ -9,11 +9,7 @@ class TutorDetailsController < ApplicationController
   end
 
   def show
-    if current_user.account_type == "parent"
-      render "parent_home"
-    elsif current_user.account_type == "tutor"
-      render "tutor_detailed_homepage.html.erb"
-    end
+    
   end
 
   def create 
@@ -28,6 +24,7 @@ class TutorDetailsController < ApplicationController
 
   end 
 
+  
 
 private 
  def tutor_detail_params
@@ -35,6 +32,6 @@ private
   end
 
   def specilization_params
-       params.permit(:years_of_experience, :qualification1, :qualification2 ) 
+       params.permit(:years_of_experience, :qualification1, :qualification2, :subject_id ) 
   end
 end 
