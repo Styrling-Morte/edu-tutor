@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Edututor</title>
-  <%= stylesheet_link_tag    'application', 'users', 'multiselect', 'static_pages', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'tutors', 'parents', 'static_pages', 'multiselect', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', 'users', 'multiselect', 'calendar', 'static_pages', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'tutors', 'parents', 'static_pages', 'multiselect', 'calendar', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -58,14 +58,13 @@
                 <%= current_user.first_name %> <span class="caret"></span>
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                <li><a href="#">Edit Profile TODO</a></li>
+                <li><a href="#">Edit Profile</a></li>
                 <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
               </ul>
             </div>
           <% end %>
         </ul>
         <div class="nav navbar-note navbar-right">
-          <button type="button" name="button">TODO</button>
         </div>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

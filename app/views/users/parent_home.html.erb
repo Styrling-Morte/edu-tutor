@@ -13,8 +13,7 @@
         <% current_user.wards.each do |ward| %>
           <li><%= link_to ward.first_name, generate_ward_page_path(:js, :ward_id => ward.id), remote: true %></li>
         <% end %>
-        <li><a data-toggle="modal" data-target="#newWardForm">Add New Ward
-          <span class="glyphicon glyphicon-plus"></span></a></li>
+        <li><a data-toggle="modal" data-target="#newWardForm" style="cursor: pointer;">Add New Ward <span class="glyphicon glyphicon-plus"></span></a></li>
       </ul>
     </div>
     <% else %>
@@ -31,11 +30,11 @@
 
 <!-- Ward page render start -->
   <% if !current_user.wards.blank? %>
+
     <!-- Ward Schedule -->
-    <div id="ward_calendar" class="container">
-      <div id="calendar">
-        <%= calender.view %>
-      </div>
+    <div class="container">
+      <div id="ward_schedule_clndr"></div>
+      <%= render :partial => './calendar_templates/ward_schedule' %>
     </div>
 
     <!-- Ward subjects -->
@@ -45,20 +44,23 @@
 
     <!-- Reccomended Tutors -->
     <div class="recomended-tutors container">
-
-      <h3>Reccomended Tutors</h3>
-      <ul> 
-        <%   tutor1 = allTutors[0]  %> 
-        <%   tutor2 = allTutors[2]  %> 
-        <li> <%= link_to(tutor1.user.first_name,  user_tutor_detail_path(:user_id => current_user.id, :tutor1_id => tutor1.id) ) %></li>
-        <li> <%= link_to(tutor2.user.first_name,  user_tutor_detail_path(:user_id => current_user.id,:tutor1_id => tutor2.id) ) %></li>
-      </ul>
-      
-
-      <h3>Recomended Tutors</h3>
+      <h3>Recommended Tutors</h3>
       <%= render :partial => './shared/tutor_search_result', locals: {tutor: allTutors.first} %>
-
     </div>
+
+  <% else %>
+
+  <div class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h4>Add a Ward</h4>
+      </div>
+      <div class="panel-body">
+        <p>Add a ward to begin booking tutoring sessions.</p>
+      </div>
+    </div>
+  </div>
+
   <% end %>
 
 <!-- Ward page render stop -->
@@ -75,31 +77,22 @@
         <div id="addNewWardForm">
           <form id="newWardUser" action="/users/<%= current_user.id %>/wards" method="post">
             <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-            <p>First Name</p>
+            <label for="first_name">First Name: </label>
             <input type="text" name="first_name">
-            <p>Grade</p>
+            <label for="grade_school_level">Grade: </label>
             <select form="newWardUser" name="grade_school_level">
               <option value=""> </option>
               <% for i in 1..12 %>
                 <option value="Grade <%= i %>">Grade <%= i %></option>
               <% end %>
-            </select>
-            <p>Subject</p>
+            </select><br>
+            <label for="subject_ids[]">Subject: </label>
             <select multiple class="multiple_select" form="newWardUser" name="subject_ids[]">
               <% subject_list.each do |subject| %>
                 <% name = subject.subject_name %>
                 <option value="<%= subject.id %>"><%= name %></option>
               <% end %>
             </select>
-            <div class="checkbox-group">
-              <table>
-                <tbody>
-                  <ul>
-                    <%= render './shared/ward_time_form' %>
-                  </ul>
-                </tbody>
-              </table>
-            </div>
           </form>
         </div>
       </div>

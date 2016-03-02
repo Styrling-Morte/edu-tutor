@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :sessions, only: [:create, :destroy]
+  resources :bookings, only: [:create, :destroy]
 
   get "tutor_details/search", to: "tutor_details#search"
   get "/generate_ward_page", to: "wards#generate_page"

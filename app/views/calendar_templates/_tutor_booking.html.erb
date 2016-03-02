@@ -1,0 +1,24 @@
+<script type="text/template" id="tutor_booking_clndr_template">
+
+  <!-- Calendar header and controls -->
+  <div class="clndr-controls">
+    <div class="clndr-previous-button">&lt;</div>
+    <div class="clndr-next-button">&gt;</div>
+    <div class="current-month"><%%= month %> <%%= year %></div>
+  </div>
+
+  <!-- Calendar days grid -->
+  <div class="clndr-grid">
+    <div class="days-of-the-week clearfix">
+      <%% _.each(daysOfTheWeek, function(day) { %>
+        <div class="header-day"><%%= day %></div>
+      <%% }); %>
+    </div>
+    <div class="days">
+      <%% _.each(days, function(day) { %>
+        <div class="<%%= day.classes %>" id="<%%= day.id %>"><span class="day-number"><%%= day.day %></span></div>
+      <%% }); %>
+    </div>
+  </div>
+
+</script>

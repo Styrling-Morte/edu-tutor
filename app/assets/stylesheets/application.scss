@@ -45,18 +45,36 @@ a {
 	color: #171717;
 
   :hover {
-	text-decoration: none;
+		text-decoration: none;
   }
 }
 
 .navbar {
-  background-color: #FFF;
-	height: 5em;
-	padding-top: 1em;
-	margin-bottom: 0;
+  background-color: #363636;
+	border-color: #363636;
+	margin: 0px;
 	border-radius: 0;
 
-  a {
-    background-color: #FFF;
-  }
+	.container {
+		background-color: #363636;
+		padding-bottom: 0.5em;
+
+		.navbar-account {
+
+			ul li a {
+  			color: #FFF;
+
+				&:hover {
+					color: grey;
+				}
+  		}
+		}
+
+		.navbar-brand {
+			color: #FFF;
+			font-family: serif;
+			font-size: 2em;
+			font-weight: 700;
+		}
+	}
 }

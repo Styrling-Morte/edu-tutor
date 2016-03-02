@@ -1,15 +1,38 @@
+<a href="<%= url_for(user_tutor_detail_path(:user_id => current_user.id, :tutor_id => tutor.id) ) %>">
+
 <div class="tutor_search_result">
   <div class="tutor_image">
     <img src="http://lorempixel.com/120/120/" alt="pew pew">
   </div>
   <div class="tutor_right">
     <div class="tutor_search_header">
-      <h3><%= tutor.user.first_name %> <%= tutor.user.last_name %></h3>
-      <h4>Average Review</h4>
+      <% full_name = tutor.user.first_name + " " + tutor.user.last_name %>
+      <h3><%= full_name %></h3>
+      <h4>Rating: 
+      <% if tutor.average_review != nil %>
+        <% rating = tutor.average_review %>
+      <% else %>
+        <% rating = 5 %>
+      <% end %>
+      <% for i in 1..rating %>
+        ★
+      <% end %>
+      </h4>
     </div>
     <div class="tutor_search_body">
-      <p>Subject, Subject, Subject</p>
+      <p>Subjects:
+      <% tutor.specializations.each do |specialization| %>
+        <% subject_id = specialization.subject_id %>
+        <% if tutor.specializations.last() == specialization %>
+          <%= subject_list.find(subject_id).subject_name %>
+        <% else %>
+          <%= subject_list.find(subject_id).subject_name + ", " %>
+        <% end %>
+      <% end %>
+      </p>
       <p><%= tutor.user.address %>, <%= tutor.user.city %></p>
     </div>
   </div>
 </div>
+
+</a>

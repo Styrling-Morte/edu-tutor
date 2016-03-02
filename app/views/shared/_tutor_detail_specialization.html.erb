@@ -1,14 +1,15 @@
-<div class="experience col-md-12">
+<div class="experience">
   <table>
     <tbody>
       <tr>
-        <td> Subject: </td>
-        <td> </td>
+        <td>Subject:</td>
+        <% subject_id = specialization.subject_id %>
+        <td><%= subject_list.find(subject_id).subject_name %></td>
         <td> Experience(yrs): </td>
         <td> <%= specialization.years_of_experience %> </td>
-        <td> Qualification1: </td>
+        <td> Qualification: </td>
         <td> <%= specialization.qualification1 %>  </td>
-        <td> Qualification2: </td>
+        <td> Qualification: </td>
         <td> <%= specialization.qualification2 %> </td>
       </tr>
     </tbody>

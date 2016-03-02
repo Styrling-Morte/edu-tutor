@@ -3,3 +3,5 @@ $('#ward_calendar').html("<%= escape_javascript(render :partial => './shared/war
 $('#ward_subjects').html("<%= escape_javascript(render :partial => './shared/ward_subjects', locals: {ward: @selected} ) %>");
 
 $('#ward_name').html("<%= @selected.first_name %> <span class='caret'></span>");
+
+events = bookings_list.where(:ward_id = @selected.id)
