@@ -47,9 +47,13 @@
 </div>
 
 <div id="tutor_search_results" class="container">
-  <% @tutor_result.each do |tutor| %>
-    <%= render :partial => './shared/tutor_search_result', locals: {tutor: tutor} %>
+  <% if @tutor_result != nil %>
+    <% @tutor_result.each do |tutor| %>
+      <%= render :partial => './shared/tutor_search_result', locals: {tutor: tutor} %>
+    <% end %>
+  <% else %>
+    <% allTutors.each do |tutor| %>
+      <%= render :partial => './shared/tutor_search_result', locals: {tutor: tutor} %>
+    <% end %>
   <% end %>
 </div>
-
- 

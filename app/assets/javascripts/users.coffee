@@ -18,9 +18,6 @@ jQuery ->
   $('#buttonQualificationSubmit').click ->
     $('#tutorUser').submit()
 
-  $('#addBookingButton').click ->
-    $('#newBookingForm').submit()
-
   # close Ward dropdown on new ward click
   $(".dropdown-menu li").click ->
     $(@).closest(".dropdown-menu").prev().dropdown("toggle")

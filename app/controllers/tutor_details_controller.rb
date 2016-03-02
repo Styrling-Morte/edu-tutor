@@ -9,7 +9,7 @@ class TutorDetailsController < ApplicationController
   end
 
   def show
-
+    render 'show'
   end
 
   def create
@@ -24,21 +24,22 @@ class TutorDetailsController < ApplicationController
   end
 
   def search
-   
-    ward_grade = params[:Grade]
+    location = params[:location]
+    ward_grade = params[:grade]
     subject = params[:subject]
-    @tutor_result = User.where(:account_type => 'tutor').where(["address LIKE ?", "%#{params[:Location]}%"])
+    tutor_user_ids = User.where(:account_type => 'tutor').where(["address LIKE ?", "%#{params[:location]}%"]).ids
+    @tutor_result = TutorDetail.where(:user_id => tutor_user_ids)
     render 'search.html.erb'
   end
 
-  
 
-private
+ private
+
  def tutor_detail_params
        params.permit(:user_id, :bio, :image)
   end
 
   def specilization_params
-       params.permit(:years_of_experience, :qualification1, :qualification2, :subject_id ) 
+       params.permit(:years_of_experience, :qualification1, :qualification2, :subject_id )
   end
 end

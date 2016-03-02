@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   helper_method :subject_list, :allTutors
 
   def bookings_list
-    @bookings = Bookings.all()
+    @bookings = Booking.all()
   end
 
   helper_method :bookings_list

@@ -33,7 +33,11 @@
 
     <!-- Ward Schedule -->
     <div class="container">
-      <div id="ward_schedule_clndr"></div>
+      <% if current_user.wards.first.bookings.blank? %>
+        <div id="ward_schedule_clndr"></div>
+      <% else %>
+        <div id="ward_schedule_clndr_events"></div>
+      <% end %>
       <%= render :partial => './calendar_templates/ward_schedule' %>
     </div>
 

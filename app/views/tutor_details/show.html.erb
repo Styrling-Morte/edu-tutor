@@ -6,7 +6,7 @@
       <img src="http://lorempixel.com/220/220/" alt="pew pew">
     </div>
     <div class="bio col-md-9">
-     <% tutor = allTutors.find(params[:tutor_id]) %>
+     <% tutor = allTutors.find(params[:id]) %>
       <h4><%= tutor.user.first_name %> <%= tutor.user.last_name %> </h4>
       <h5>Professional Bio:</h5>
       <p><%= tutor.bio %></p>
@@ -48,7 +48,7 @@
 </div>
 
 <!-- booking creation modal -->
-<div class="modal fade" id="newBookingForm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<div class="modal fade" id="newBookingFormModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -56,38 +56,36 @@
         <h4 class="modal-title" id="myModalLabel">New Booking</h4>
       </div>
       <div class="modal-body">
+        <div class='date_store hide'></div>
         <div id="addNewBookingForm">
           <form id="newBookingForm" action="/bookings" method="post">
             <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-            <label for="wardBooking">Ward: </label>
-            <select form="newBookingForm" name="wardBooking">
+            <label for="ward_id">Ward: </label>
+            <select form="newBookingForm" name="ward_id">
               <% current_user.wards.each do |ward| %>
-                <option><%= ward.first_name %></option>
+                <option value="<%= ward.id %>"><%= ward.first_name %></option>
               <% end %>
             </select><br>
-            <label for="subjectBooking">Subject: </label>
-            <select form="newBookingForm" name="subjectBooking">
+            <label for="subject_id">Subject: </label>
+            <select form="newBookingForm" name="subject_id">
             <% tutor.specializations.each do |specialization| %>
-              <option><%= subject_list.find(specialization.subject_id).subject_name %></option>
+              <option value="<%= specialization.subject_id %>"><%= subject_list.find(specialization.subject_id).subject_name %></option>
             <% end %>
             </select><br>
-            <label for="startTime">*Start at: </label>
-            <select form="newBookingForm" name="startTime">
+            <label for="booking_start">*Start at: </label>
+            <select class='booking_start' form="newBookingForm" name="booking_start">
             <% for i in 1..24 %>
-              <option><%= i %>:00</option>
+              <option value="T<%= i %>:00:00-07:00"><%= i %>:00</option>
             <% end %>
             </select>
-            <label for="endTime">End at: </label>
-            <select form="newBookingForm" name="endTime">
+            <label for="booking_end">End at: </label>
+            <select class="booking_end" form="newBookingForm" name="booking_end">
             <% for i in 1..24 %>
-              <option><%= i %>:00</option>
+              <option value="T<%= i %>:00:00-07:00"><%= i %>:00</option>
             <% end %>
             </select>
             <h6>*All times are in 24 hour clock</h6>
           </form>
-        </div>
-        <div>
-
         </div>
       </div>
       <div class="modal-footer">
