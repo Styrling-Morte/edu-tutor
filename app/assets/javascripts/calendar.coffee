@@ -3,7 +3,7 @@ jQuery ->
   currentMonth = moment().format('YYYY-MM')
   nextMonth    = moment().add('month', 1).format('YYYY-MM')
   events = [
-    {date:"2016/03/07", title:"Math Tutoring w/ Scott McPhee", start_time:"5:00PM-6:00PM"}
+    {date:"2016/03/07", title:"Biology Tutoring w/ Scott McPhee", start_time:"5:00PM-6:00PM"}
   ]
 
   $('#tutor_schedule_clndr').clndr({
