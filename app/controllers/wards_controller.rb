@@ -4,9 +4,9 @@ class WardsController < ApplicationController
     ward = Ward.new(ward_params)
     if ward.save
       tutorial_params[:subject_ids].each do |id|
-        subject_id = {"subject_id" => id}
-        ward.tutorial_subjects.create(subject_id)
-      end
+      subject_id = {"subject_id" => id}
+      ward.tutorial_subjects.create(subject_id)
+    end
       redirect_to :back
     else
       # show errors

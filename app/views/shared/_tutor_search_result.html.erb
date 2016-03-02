@@ -8,7 +8,7 @@
     <div class="tutor_search_header">
       <% full_name = tutor.user.first_name + " " + tutor.user.last_name %>
       <h3><%= full_name %></h3>
-      <h4>Rating: 
+      <h4>Rating:
       <% if tutor.average_review != nil %>
         <% rating = tutor.average_review %>
       <% else %>
