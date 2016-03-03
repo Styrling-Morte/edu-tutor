@@ -1,0 +1,308 @@
+#tutor_schedule_clndr {
+  width: 100%;
+  height: auto;
+  background-color: #ebebeb;
+  font-weight: 700;
+  -moz-box-shadow: 0px 4px 0 #343434;
+  -webkit-box-shadow: 0px 4px 0 #343434;
+  box-shadow: 0px 4px 0 #343434;
+
+  // Clndr-controls start
+  .clndr-controls {
+    padding: 14px;
+    background-color: #414141;
+    color: white;
+    text-align: center;
+
+    .clndr-previous-button {
+      float: left;
+      text-align: left;
+    }
+
+    .clndr-next-button {
+      float: right;
+      text-align: right;
+    }
+
+    .clndr-previous-button, .clndr-next-button {
+      width: 30px;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+  // Clndr controls end
+
+  // clndr-grid start
+  .clndr-grid {
+    float: left;
+    width: 100%;
+    border-bottom: 1em solid white;
+
+    .days-of-the-week {
+      width: 100%;
+      background-color: #3883a3;
+
+      .header-day {
+        float: left;
+        width: 14.2857%;
+        padding: 14px;
+        text-align: center;
+        color: white;
+      }
+    }
+
+    .days {
+      width: 100%;
+
+      .day, .empty {
+        float: left;
+        width: 14.2857%;
+        height: 66px;
+        padding: 24px 0;
+        text-align: center;
+        color: #4f4f4f;
+        background-color: #ebebeb;
+        border-bottom: 2px solid white;
+
+        &.event .day-number {
+          padding-bottom: 4px;
+          border-bottom: 2px solid #3883a3;
+        }
+      }
+
+      .today {
+        background-color: white;
+        background-image: none;
+      }
+    }
+  }
+  // Clndr-grid end
+}
+
+#ward_schedule_clndr {
+
+  .clndr {
+    width: 100%;
+    height: auto;
+    background-color: #ebebeb;
+    font-weight: 700;
+    -moz-box-shadow: 0px 4px 0 #343434;
+    -webkit-box-shadow: 0px 4px 0 #343434;
+    box-shadow: 0px 4px 0 #343434;
+
+    // Clndr-controls start
+    .clndr-controls {
+      padding: 14px;
+      background-color: #414141;
+      color: white;
+      text-align: center;
+
+      .clndr-previous-button {
+        float: left;
+        text-align: left;
+      }
+
+      .clndr-next-button {
+        float: right;
+        text-align: right;
+      }
+
+      .clndr-previous-button, .clndr-next-button {
+        width: 30px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+    // Clndr controls end
+
+    // clndr-grid start
+    .clndr-grid {
+      float: left;
+      width: 65%;
+      border-bottom: 1em solid white;
+
+      .days-of-the-week {
+        width: 100%;
+        background-color: #3883a3;
+
+        .header-day {
+          float: left;
+          width: 14.2857%;
+          padding: 14px;
+          text-align: center;
+          color: white;
+        }
+      }
+
+      .days {
+        width: 100%;
+
+        .day, .empty {
+          float: left;
+          width: 14.2857%;
+          height: 66px;
+          padding: 24px 0;
+          text-align: center;
+          color: #4f4f4f;
+          background-color: #ebebeb;
+          border-bottom: 2px solid white;
+
+          &.event .day-number {
+            padding-bottom: 4px;
+            border-bottom: 2px solid #3883a3;
+          }
+        }
+
+        .today {
+          background-color: white;
+          background-image: none;
+        }
+      }
+    }
+    // Clndr-grid end
+    .event-listing {
+      float: left;
+      width: 35%;
+
+      .event-listing-title {
+        padding: 14px;
+        background-color: #71bbd2;
+        text-align: center;
+        color: white;
+        letter-spacing: 1px;
+      }
+
+      .event-item {
+        padding: 14px;
+        color: #4f4f4f;
+      }
+
+      .event-item-date {
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+#ward_schedule_clndr_events {
+
+  .clndr {
+    width: 100%;
+    height: auto;
+    background-color: #ebebeb;
+    font-weight: 700;
+    -moz-box-shadow: 0px 4px 0 #343434;
+    -webkit-box-shadow: 0px 4px 0 #343434;
+    box-shadow: 0px 4px 0 #343434;
+
+    // Clndr-controls start
+    .clndr-controls {
+      padding: 14px;
+      background-color: #414141;
+      color: white;
+      text-align: center;
+
+      .clndr-previous-button {
+        float: left;
+        text-align: left;
+      }
+
+      .clndr-next-button {
+        float: right;
+        text-align: right;
+      }
+
+      .clndr-previous-button, .clndr-next-button {
+        width: 30px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+    // Clndr controls end
+
+    // clndr-grid start
+    .clndr-grid {
+      float: left;
+      width: 65%;
+      border-bottom: 1em solid white;
+
+      .days-of-the-week {
+        width: 100%;
+        background-color: #3883a3;
+
+        .header-day {
+          float: left;
+          width: 14.2857%;
+          padding: 14px;
+          text-align: center;
+          color: white;
+        }
+      }
+
+      .days {
+        width: 100%;
+
+        .day, .empty {
+          float: left;
+          width: 14.2857%;
+          height: 66px;
+          padding: 24px 0;
+          text-align: center;
+          color: #4f4f4f;
+          background-color: #ebebeb;
+          border-bottom: 2px solid white;
+
+          &.event .day-number {
+            padding-bottom: 4px;
+            border-bottom: 2px solid #3883a3;
+          }
+        }
+
+        .today {
+          background-color: white;
+          background-image: none;
+        }
+      }
+    }
+    // Clndr-grid end
+    .event-listing {
+      float: left;
+      width: 35%;
+
+      .event-listing-title {
+        padding: 14px;
+        background-color: #71bbd2;
+        text-align: center;
+        color: white;
+        letter-spacing: 1px;
+      }
+
+      .event-item {
+        padding: 14px;
+        color: #4f4f4f;
+      }
+
+      .event-item-date {
+        font-weight: 400;
+      }
+    }
+  }
+}

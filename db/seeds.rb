@@ -10,6 +10,7 @@
 
 
 
+
 Specialization.create(years_of_experience: 10, qualification1:'B.Sc Physics', qualification2: 'GED Physics', tutor_detail_id: 12, subject_id: 35 )
 Specialization.create(years_of_experience: 5, qualification1:'B.Sc Mathematics', qualification2: 'Msc Mathematics', tutor_detail_id: 12, subject_id: 28 )
 
@@ -31,3 +32,16 @@ Specialization.create(years_of_experience: 5, qualification1:'Diploma Science', 
 
 Specialization.create(years_of_experience: 2, qualification1: 'B.Sc', qualification2: 'B.Ed Minor', tutor_detail_id: 20, subject_id: 36)
 Specialization.create(years_of_experience: 4, qualification1: 'B.Sc', qualification2: 'B.Ed Minor', tutor_detail_id: 20, subject_id: 34)
+
+Subject.create(subject_name: 'Math')
+Subject.create(subject_name: 'Language Arts')
+Subject.create(subject_name: 'French')
+Subject.create(subject_name: 'Spanish')
+Subject.create(subject_name: 'Social Studies')
+Subject.create(subject_name: 'Science')
+Subject.create(subject_name: 'Chemistry')
+Subject.create(subject_name: 'Physics')
+Subject.create(subject_name: 'Biology')
+
+User.create(first_name: 'Scott', last_name: 'McPhee', postal_code: "T3H2X2", address: "420 Sierra Morena Place South-west", city: "Calgary", province: "AB", country: "Canada", phone_number: "4038608095", email: "scottymcphee@gmail.com", password_digest: "$2a$10$bGGO4/tR1iYg6rnScIrskOsfFf4vx1kG2Q/.FsqfXfEXPoca1s1Iu", account_type: "tutor")
+

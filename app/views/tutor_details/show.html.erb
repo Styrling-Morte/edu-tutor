@@ -1,53 +1,96 @@
 <!-- Displaying the overall page view  -->
-<div class="profile">
+<div class="container">
   <!-- Displaying the profile picture and Bio -->
-  <div class="container">
-    <div class="bio col-md-6">
-      <%= image_tag "tutor.jpg" %>
-      <h4> </h4>
+  <div class="profile">
+    <div class="bio col-md-3">
+      <img src="http://lorempixel.com/220/220/" alt="pew pew">
     </div>
-    <div class="bio col-md-6">
-     <% tutor =  allTutors.find(params[:tutor1_id]) %> 
-      <h4>Name: <%= tutor.user.first_name %> <%= tutor.user.last_name %> </h4>
-      <h5> Professional Bio: </h5>
-      <p> 
-        <%= tutor.bio %>
-      </p>
+    <div class="bio col-md-9">
+     <% tutor = allTutors.find(params[:id]) %>
+      <h4><%= tutor.user.first_name %> <%= tutor.user.last_name %> </h4>
+      <h5>Professional Bio:</h5>
+      <p><%= tutor.bio %></p>
+      <h4>Qualifications</h4>
+      <% if tutor.specializations.count >= 1 %>
+      <%  tutor.specializations.each do |specialization| %>
+        <%= render :partial => './shared/tutor_detail_specialization', locals: {specialization: specialization} %>
+      <% end %>
+      <% end %>
     </div>
   </div>
+</div>
 
-
-  <!-- Displaying Experience and Specilazation-->
-  <div class="container">
-    <h4>Specialization</h4>
-    <% if tutor.specializations.count >= 1 %> 
-    <%  tutor.specializations.each do |specialization | %>
-      <%= render :partial => './shared/tutor_detail_specialization', locals: {specialization: specialization} %>
-      <% end %> 
-    <% end %> 
-  </div>
-  
-  <!-- parent Reviews of tutors  -->
-  <br>
-  <br>
-  <div class="container">
-    <div> <h4> <li>Parents Reviews </li> </h4> </div>
-      <div class="reviews_tutor">
-        <div class="review col-md-6">
-          <p>My sons performance increased dramatically after he began his lessons with Mr Stanley!</p>
-          <h5>Scott, 25th of January, 2016 </h5>
-          <hr>
-        </div>
+<!-- parent Reviews of tutors  -->
+<div class="container">
+  <div class="reviews">
+    <h4>Reviews</h4>
+    <div class="reviews_tutor">
+      <div class="review col-md-6">
+        <p>My sons performance increased dramatically after he began his lessons with Mr Stanley!</p>
+        <h5>Scott, 25th of January, 2016 </h5>
       </div>
     </div>
-  <br>
-  <div class="container">
     <div class="reviews_tutor">
       <div class="review col-md-6">
         <p>not only did my daughters English grade score increase, her attutide towards her studies also improved
         when stanley started home Tutoring with her</p>
         <h5>IDD ...  25th of March, 2015 </h5>
-        <hr>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h4>Booking</h4>
+  <h6>Click on a day to schedule a tutoring session. Days with a black background are not available to schedule.</h6>
+  <div id="tutor_schedule_clndr"></div>
+  <%= render :partial => './calendar_templates/tutor_booking' %>
+</div>
+
+<!-- booking creation modal -->
+<div class="modal fade" id="newBookingFormModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">New Booking</h4>
+      </div>
+      <div class="modal-body">
+        <div class='date_store hide'></div>
+        <div id="addNewBookingForm">
+          <form id="newBookingForm" action="/bookings" method="post">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <label for="ward_id">Ward: </label>
+            <select form="newBookingForm" name="ward_id">
+              <% current_user.wards.each do |ward| %>
+                <option value="<%= ward.id %>"><%= ward.first_name %></option>
+              <% end %>
+            </select><br>
+            <label for="subject_id">Subject: </label>
+            <select form="newBookingForm" name="subject_id">
+            <% tutor.specializations.each do |specialization| %>
+              <option value="<%= specialization.subject_id %>"><%= subject_list.find(specialization.subject_id).subject_name %></option>
+            <% end %>
+            </select><br>
+            <label for="booking_start">*Start at: </label>
+            <select class='booking_start' form="newBookingForm" name="booking_start">
+            <% for i in 1..24 %>
+              <option value="T<%= i %>:00:00-07:00"><%= i %>:00</option>
+            <% end %>
+            </select>
+            <label for="booking_end">End at: </label>
+            <select class="booking_end" form="newBookingForm" name="booking_end">
+            <% for i in 1..24 %>
+              <option value="T<%= i %>:00:00-07:00"><%= i %>:00</option>
+            <% end %>
+            </select>
+            <h6>*All times are in 24 hour clock</h6>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal">Close</button>
+        <button class="btn btn-primary" id="addBookingButton">Save</button>
       </div>
     </div>
   </div>

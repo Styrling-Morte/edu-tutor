@@ -13,20 +13,15 @@ class ApplicationController < ActionController::Base
   end
 
   def allTutors
-    @tutor=TutorDetail.all() 
+    @tutor=TutorDetail.all()
 
-  end 
+  end
 
   helper_method :subject_list, :allTutors
 
-
-  def allTutors
-   @tutor=TutorDetail.all()
+  def bookings_list
+    @bookings = Booking.all()
   end
-  helper_method  :allTutors
 
-  def calender
-    @full_clndr = Clndr.new(:full)
-  end
-  helper_method :calender
+  helper_method :bookings_list
 end

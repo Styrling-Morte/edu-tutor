@@ -10,16 +10,16 @@
                 <label><span>Calgary</span></label>
               </td>
               <td>
-                <select name="Location">
+                <select name="location">
                   <option value="">Location </option>
                   <option value="North-west">North-west</option>
                   <option value="North-east">North-east</option>
-                  <option value="South_west">South_west</option>
+                  <option value="South-west">South-west</option>
                   <option value="South-east">South-east</option>
                 </select>
               </td>
               <td>
-                <select name="Grade">
+                <select name="grade">
                   <option value="">Ward Grade</option>
                   <% for i in 1..12 %>
                     <option value="<%= i %>">Grade <%= i %></option>
@@ -36,7 +36,7 @@
                 </select>
               </td>
               <td>
-                <button type="submit" name="search" class="searchTutorButton" id="searchTutorUser ">Search</button>
+                <button type="submit" name="search" class="searchTutorButton btn btn-primary" id="searchTutorUser ">Search</button>
               </td>
             </tr>
           </tbody>
@@ -47,9 +47,13 @@
 </div>
 
 <div id="tutor_search_results" class="container">
-  <% @tutor_result.each do |tutor| %>
-    <%= render :partial => './shared/tutor_search_result', locals: {tutor: tutor} %>
+  <% if @tutor_result != nil %>
+    <% @tutor_result.each do |tutor| %>
+      <%= render :partial => './shared/tutor_search_result', locals: {tutor: tutor} %>
+    <% end %>
+  <% else %>
+    <% allTutors.each do |tutor| %>
+      <%= render :partial => './shared/tutor_search_result', locals: {tutor: tutor} %>
+    <% end %>
   <% end %>
 </div>
-
- 

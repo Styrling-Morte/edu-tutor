@@ -1,3 +1,11 @@
+.navbar-collapse .navbar-nav li a {
+  color: #FFF;
+
+  &:hover {
+    color: grey;
+  }
+}
+
 .non_user_slider {
   background-image: image-url("non_user_slider.jpg");
   background-repeat: no-repeat;
@@ -50,11 +58,12 @@
 
 #teach, #learn {
   background-color: #FFF;
-  height: 20em;
+  height: 16em;
   font-size: 2.5rem;
+  border-bottom: 0.1em solid grey;
 
   p {
-    height: 15em;
+    height: 8em;
   }
 
   button {
@@ -95,4 +104,9 @@
     padding: 0.5em 4em;
     margin-left: 18%;
   }
+}
+
+#about {
+  height: 16em;
+  margin-bottom: 1em;
 }
